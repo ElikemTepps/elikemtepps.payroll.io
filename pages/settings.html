@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghana Payroll System - Settings</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-logo">
+                    <i class="bi bi-cash-coin"></i>
+                    <span>Ghana Payroll</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="../index.html" class="sidebar-menu-item">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                
+                <a href="employees.html" class="sidebar-menu-item">
+                    <i class="bi bi-people"></i>
+                    <span>Employees</span>
+                </a>
+                
+                <a href="payroll.html" class="sidebar-menu-item">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Payroll</span>
+                </a>
+                
+                <a href="payslips.html" class="sidebar-menu-item">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Payslips</span>
+                </a>
+                
+                <a href="reports.html" class="sidebar-menu-item">
+                    <i class="bi bi-bar-chart"></i>
+                    <span>Reports</span>
+                </a>
+                
+                <div class="sidebar-divider"></div>
+                
+                <a href="tax-calculator.html" class="sidebar-menu-item">
+                    <i class="bi bi-calculator"></i>
+                    <span>Tax Calculator</span>
+                </a>
+                
+                <a href="settings.html" class="sidebar-menu-item active">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="d-flex align-items-center">
+                    <button type="button" class="sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h4 class="mb-0 d-none d-md-block">Settings</h4>
+                </div>
+                
+                <div class="navbar-user">
+                    <div class="user-avatar">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div class="user-name d-none d-md-block">Admin</div>
+                </div>
+            </nav>
+            
+            <!-- Settings Tabs -->
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="settingsTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="company-tab" data-bs-toggle="tab" data-bs-target="#company" type="button" role="tab" aria-controls="company" aria-selected="true">Company</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tax-tab" data-bs-toggle="tab" data-bs-target="#tax" type="button" role="tab" aria-controls="tax" aria-selected="false">Tax Settings</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="departments-tab" data-bs-toggle="tab" data-bs-target="#departments" type="button" role="tab" aria-controls="departments" aria-selected="false">Departments</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="user-tab" data-bs-toggle="tab" data-bs-target="#user" type="button" role="tab" aria-controls="user" aria-selected="false">User Account</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="settingsTabsContent">
+                        <!-- Company Settings -->
+                        <div class="tab-pane fade show active" id="company" role="tabpanel" aria-labelledby="company-tab">
+                            <h5 class="mb-4">Company Information</h5>
+                            <form>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="companyName" class="form-label">Company Name</label>
+                                        <input type="text" class="form-control" id="companyName" value="Ghana Payroll System">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="taxID" class="form-label">Tax ID Number</label>
+                                        <input type="text" class="form-control" id="taxID" value="TIN12345678">
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" value="info@ghanapayroll.com">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" value="+233 30 123 4567">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Address</label>
+                                    <textarea class="form-control" id="address" rows="3">123 Independence Avenue, Accra, Ghana</textarea>
+                                </div>
+                                
+                                <h5 class="mt-5 mb-4">Payroll Settings</h5>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="payDay" class="form-label">Default Pay Day</label>
+                                        <select class="form-select" id="payDay">
+                                            <option value="last">Last day of month</option>
+                                            <option value="1">1st day of month</option>
+                                            <option value="15">15th day of month</option>
+                                            <option value="25">25th day of month</option>
+                                            <option value="custom">Custom</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="paymentMethod" class="form-label">Default Payment Method</label>
+                                        <select class="form-select" id="paymentMethod">
+                                            <option value="bank" selected>Bank Transfer</option>
+                                            <option value="cash">Cash</option>
+                                            <option value="mobile">Mobile Money</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="currency" class="form-label">Currency</label>
+                                        <select class="form-select" id="currency">
+                                            <option value="GHS" selected>Ghana Cedi (GH₵)</option>
+                                            <option value="USD">US Dollar ($)</option>
+                                            <option value="EUR">Euro (€)</option>
+                                            <option value="GBP">British Pound (£)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="autoTaxCalculation" checked>
+                                    <label class="form-check-label" for="autoTaxCalculation">
+                                        Automatically calculate tax and SSNIT deductions
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="autoPayslipGeneration" checked>
+                                    <label class="form-check-label" for="autoPayslipGeneration">
+                                        Automatically generate payslips after payroll processing
+                                    </label>
+                                </div>
+                                
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Tax Settings -->
+                        <div class="tab-pane fade" id="tax" role="tabpanel" aria-labelledby="tax-tab">
+                            <h5 class="mb-4">Tax Rate Configuration</h5>
+                            
+                            <div class="alert alert-info mb-4">
+                                <i class="bi bi-info-circle me-2"></i>
+                                These are the current Ghana tax rates. Update these values if tax laws change.
+                            </div>
+                            
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h6 class="card-title mb-0">Income Tax Brackets</h6>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Chargeable Income (Annual)</th>
+                                                    <th width="150">Rate (%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>First GH₵ 4,380</td>
+                                                    <td>
+                                                        <input type="number" class="form-control form-control-sm" value="0" min="0" max="100">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Next GH₵ 1,320</td>
+                                                    <td>
+                                                        <input type="number" class="form-control form-control-sm" value="5" min="0" max="100">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Next GH₵ 1,560</td>
+                                                    <td>
+                                                        <input type="number" class="form-control form-control-sm" value="10" min="0" max="100">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Next GH₵ 36,000</td>
+                                                    <td>
+                                                        <input type="number" class="form-control form-control-sm" value="17.5" min="0" max="100">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Next GH₵ 196,740</td>
+                                                    <td>
+                                                        <input type="number" class="form-control form-control-sm" value="25" min="0" max="100">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Exceeding GH₵ 240,000</td>
+                                                    <td>
+                                                        <input type="number" class="form-control form-control-sm" value="30" min="0" max="100">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h5 class="mb-4">SSNIT & Other Contributions</h5>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label for="ssnitEmployeeRate" class="form-label">SSNIT Employee Contribution Rate (%)</label>
+                                    <input type="number" class="form-control" id="ssnitEmployeeRate" value="5.5" min="0" max="100" step="0.1">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="ssnitEmployerRate" class="form-label">SSNIT Employer Contribution Rate (%)</label>
+                                    <input type="number" class="form-control" id="ssnitEmployerRate" value="13" min="0" max="100" step="0.1">
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label for="healthInsuranceRate" class="form-label">Health Insurance Rate (%)</label>
+                                    <input type="number" class="form-control" id="healthInsuranceRate" value="2.5" min="0" max="100" step="0.1">
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-outline-secondary me-2">Reset to Defaults</button>
+                                <button type="button" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Departments Settings -->
+                        <div class="tab-pane fade" id="departments" role="tabpanel" aria-labelledby="departments-tab">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="mb-0">Manage Departments</h5>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDepartmentModal">
+                                    <i class="bi bi-plus-circle me-2"></i>Add Department
+                                </button>
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Department Name</th>
+                                            <th>Employees</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>IT</td>
+                                            <td>12</td>
+                                            <td><span class="badge badge-success">Active</span></td>
+                                            <td>
+                                                <div class="d-flex gap-1">
+                                                    <button class="btn btn-sm btn-outline-primary" title="Edit">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger" title="Delete">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Human Resources</td>
+                                            <td>5</td>
+                                            <td><span class="badge badge-success">Active</span></td>
+                                            <td>
+                                                <div class="d-flex gap-1">
+                                                    <button class="btn btn-sm btn-outline-primary" title="Edit">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger" title="Delete">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Finance</td>
+                                            <td>8</td>
+                                            <td><span class="badge badge-success">Active</span></td>
+                                            <td>
+                                                <div class="d-flex gap-1">
+                                                    <button class="btn btn-sm btn-outline-primary" title="Edit">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger" title="Delete">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Sales</td>
+                                            <td>15</td>
+                                            <td><span class="badge badge-success">Active</span></td>
+                                            <td>
+                                                <div class="d-flex gap-1">
+                                                    <button class="btn btn-sm btn-outline-primary" title="Edit">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger" title="Delete">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Administration</td>
+                                            <td>7</td>
+                                            <td><span class="badge badge-success">Active</span></td>
+                                            <td>
+                                                <div class="d-flex gap-1">
+                                                    <button class="btn btn-sm btn-outline-primary" title="Edit">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger" title="Delete">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- User Account Settings -->
+                        <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">
+                            <h5 class="mb-4">Account Information</h5>
+                            <form>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="name" value="Admin User">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="accountEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="accountEmail" value="admin@ghanapayroll.com">
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">Update Account</button>
+                                </div>
+                            </form>
+                            
+                            <hr class="my-4">
+                            
+                            <h5 class="mb-4">Change Password</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="currentPassword" class="form-label">Current Password</label>
+                                    <input type="password" class="form-control" id="currentPassword">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="newPassword" class="form-label">New Password</label>
+                                    <input type="password" class="form-control" id="newPassword">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword">
+                                </div>
+                                
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">Change Password</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add Department Modal -->
+    <div class="modal fade" id="addDepartmentModal" tabindex="-1" aria-labelledby="addDepartmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addDepartmentModalLabel">Add New Department</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="departmentName" class="form-label">Department Name</label>
+                            <input type="text" class="form-control" id="departmentName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="departmentDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="departmentDescription" rows="3"></textarea>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="departmentStatus" checked>
+                            <label class="form-check-label" for="departmentStatus">
+                                Active
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Add Department</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom JavaScript -->
+    <script src="../js/main.js"></script>
+    <!-- Bootstrap JS for tabs functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

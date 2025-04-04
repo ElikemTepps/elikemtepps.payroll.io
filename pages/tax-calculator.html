@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghana Payroll System - Tax Calculator</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-logo">
+                    <i class="bi bi-cash-coin"></i>
+                    <span>Ghana Payroll</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="../index.html" class="sidebar-menu-item">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                
+                <a href="employees.html" class="sidebar-menu-item">
+                    <i class="bi bi-people"></i>
+                    <span>Employees</span>
+                </a>
+                
+                <a href="payroll.html" class="sidebar-menu-item">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Payroll</span>
+                </a>
+                
+                <a href="payslips.html" class="sidebar-menu-item">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Payslips</span>
+                </a>
+                
+                <a href="reports.html" class="sidebar-menu-item">
+                    <i class="bi bi-bar-chart"></i>
+                    <span>Reports</span>
+                </a>
+                
+                <div class="sidebar-divider"></div>
+                
+                <a href="tax-calculator.html" class="sidebar-menu-item active">
+                    <i class="bi bi-calculator"></i>
+                    <span>Tax Calculator</span>
+                </a>
+                
+                <a href="settings.html" class="sidebar-menu-item">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="d-flex align-items-center">
+                    <button type="button" class="sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h4 class="mb-0 d-none d-md-block">Tax Calculator</h4>
+                </div>
+                
+                <div class="navbar-user">
+                    <div class="user-avatar">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div class="user-name d-none d-md-block">Admin</div>
+                </div>
+            </nav>
+            
+            <div class="row">
+                <div class="col-lg-7 mb-4">
+                    <!-- Tax Calculator Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Ghana Tax & Payroll Calculator</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="taxCalculatorForm">
+                                <div class="mb-4">
+                                    <label for="basicSalary" class="form-label">Monthly Basic Salary (GH₵)</label>
+                                    <input type="number" class="form-control form-control-lg" id="basicSalary" min="0" placeholder="Enter monthly basic salary" required>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="includeTransport" checked>
+                                            <label class="form-check-label" for="includeTransport">
+                                                Include Transport Allowance (10%)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="includeHousing" checked>
+                                            <label class="form-check-label" for="includeHousing">
+                                                Include Housing Allowance (10%)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-grid gap-2 mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg">Calculate</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Tax Brackets Reference -->
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h5 class="card-title">Ghana Income Tax Brackets (2024)</h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Chargeable Income (Annual)</th>
+                                            <th>Rate</th>
+                                            <th>Tax</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>First GH₵ 4,380</td>
+                                            <td>0%</td>
+                                            <td>GH₵ 0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Next GH₵ 1,320</td>
+                                            <td>5%</td>
+                                            <td>GH₵ 66.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Next GH₵ 1,560</td>
+                                            <td>10%</td>
+                                            <td>GH₵ 156.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Next GH₵ 36,000</td>
+                                            <td>17.5%</td>
+                                            <td>GH₵ 6,300.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Next GH₵ 196,740</td>
+                                            <td>25%</td>
+                                            <td>GH₵ 49,185.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Exceeding GH₵ 240,000</td>
+                                            <td>30%</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>SSNIT Contribution:</strong> 5.5% of Basic Salary
+                                </div>
+                                <div>
+                                    <strong>Health Insurance:</strong> 2.5% of Basic Salary
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 mb-4">
+                    <!-- Results Card -->
+                    <div class="card" id="resultsCard" style="display: none;">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">Calculation Results</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="results-section">
+                                <h6 class="fw-bold">Earnings</h6>
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td>Basic Salary</td>
+                                            <td class="text-end" id="resultBasicSalary">GH₵ 0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Transport Allowance</td>
+                                            <td class="text-end" id="resultTransport">GH₵ 0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Housing Allowance</td>
+                                            <td class="text-end" id="resultHousing">GH₵ 0.00</td>
+                                        </tr>
+                                        <tr class="fw-bold border-top">
+                                            <td>Gross Pay</td>
+                                            <td class="text-end" id="resultGrossPay">GH₵ 0.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="results-section mt-4">
+                                <h6 class="fw-bold">Deductions</h6>
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td>Income Tax</td>
+                                            <td class="text-end" id="resultIncomeTax">GH₵ 0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SSNIT Contribution (5.5%)</td>
+                                            <td class="text-end" id="resultSSNIT">GH₵ 0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Health Insurance (2.5%)</td>
+                                            <td class="text-end" id="resultHealth">GH₵ 0.00</td>
+                                        </tr>
+                                        <tr class="fw-bold border-top">
+                                            <td>Total Deductions</td>
+                                            <td class="text-end" id="resultTotalDeductions">GH₵ 0.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="results-section mt-4 bg-light p-3 rounded">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="fw-bold mb-0">Net Pay</h5>
+                                    <h5 class="fw-bold mb-0" id="resultNetPay">GH₵ 0.00</h5>
+                                </div>
+                            </div>
+                            
+                            <!-- Additional Calculations -->
+                            <div class="row mt-4">
+                                <div class="col-6">
+                                    <div class="card border-0 bg-light">
+                                        <div class="card-body p-3 text-center">
+                                            <h6 class="fw-bold text-primary">Annual Gross</h6>
+                                            <h5 class="mb-0" id="resultAnnualGross">GH₵ 0.00</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card border-0 bg-light">
+                                        <div class="card-body p-3 text-center">
+                                            <h6 class="fw-bold text-primary">Annual Net</h6>
+                                            <h5 class="mb-0" id="resultAnnualNet">GH₵ 0.00</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom JavaScript -->
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const taxCalculatorForm = document.getElementById('taxCalculatorForm');
+            const resultsCard = document.getElementById('resultsCard');
+            
+            if (taxCalculatorForm) {
+                taxCalculatorForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const basicSalary = parseFloat(document.getElementById('basicSalary').value);
+                    const includeTransport = document.getElementById('includeTransport').checked;
+                    const includeHousing = document.getElementById('includeHousing').checked;
+                    
+                    if (isNaN(basicSalary) || basicSalary <= 0) {
+                        alert('Please enter a valid basic salary amount.');
+                        return;
+                    }
+                    
+                    // Calculate allowances
+                    const transportAllowance = includeTransport ? basicSalary * 0.1 : 0;
+                    const housingAllowance = includeHousing ? basicSalary * 0.1 : 0;
+                    const grossPay = basicSalary + transportAllowance + housingAllowance;
+                    
+                    // Calculate deductions
+                    const ssnitContribution = basicSalary * 0.055;
+                    const healthInsurance = basicSalary * 0.025;
+                    
+                    // Calculate Income Tax (using the Ghana tax brackets)
+                    // First, calculate annual taxable income
+                    const annualTaxableIncome = (grossPay - ssnitContribution - healthInsurance) * 12;
+                    
+                    let incomeTax = 0;
+                    
+                    // Tax brackets (as per 2024 Ghana tax rates)
+                    if (annualTaxableIncome > 0) {
+                        // First GH₵ 4,380 (0%)
+                        const firstBracket = Math.min(annualTaxableIncome, 4380);
+                        incomeTax += 0;
+                        
+                        // Next GH₵ 1,320 (5%)
+                        const secondBracket = Math.max(0, Math.min(annualTaxableIncome - 4380, 1320));
+                        incomeTax += secondBracket * 0.05;
+                        
+                        // Next GH₵ 1,560 (10%)
+                        const thirdBracket = Math.max(0, Math.min(annualTaxableIncome - 4380 - 1320, 1560));
+                        incomeTax += thirdBracket * 0.1;
+                        
+                        // Next GH₵ 36,000 (17.5%)
+                        const fourthBracket = Math.max(0, Math.min(annualTaxableIncome - 4380 - 1320 - 1560, 36000));
+                        incomeTax += fourthBracket * 0.175;
+                        
+                        // Next GH₵ 196,740 (25%)
+                        const fifthBracket = Math.max(0, Math.min(annualTaxableIncome - 4380 - 1320 - 1560 - 36000, 196740));
+                        incomeTax += fifthBracket * 0.25;
+                        
+                        // Exceeding GH₵ 240,000 (30%)
+                        const sixthBracket = Math.max(0, annualTaxableIncome - 4380 - 1320 - 1560 - 36000 - 196740);
+                        incomeTax += sixthBracket * 0.3;
+                    }
+                    
+                    // Convert annual income tax to monthly
+                    const monthlyIncomeTax = incomeTax / 12;
+                    
+                    // Calculate total deductions and net pay
+                    const totalDeductions = ssnitContribution + healthInsurance + monthlyIncomeTax;
+                    const netPay = grossPay - totalDeductions;
+                    
+                    // Calculate annual values
+                    const annualGross = grossPay * 12;
+                    const annualNet = netPay * 12;
+                    
+                    // Format numbers as currency
+                    const formatCurrency = (amount) => {
+                        return 'GH₵ ' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+                    };
+                    
+                    // Display results
+                    document.getElementById('resultBasicSalary').textContent = formatCurrency(basicSalary);
+                    document.getElementById('resultTransport').textContent = formatCurrency(transportAllowance);
+                    document.getElementById('resultHousing').textContent = formatCurrency(housingAllowance);
+                    document.getElementById('resultGrossPay').textContent = formatCurrency(grossPay);
+                    
+                    document.getElementById('resultIncomeTax').textContent = formatCurrency(monthlyIncomeTax);
+                    document.getElementById('resultSSNIT').textContent = formatCurrency(ssnitContribution);
+                    document.getElementById('resultHealth').textContent = formatCurrency(healthInsurance);
+                    document.getElementById('resultTotalDeductions').textContent = formatCurrency(totalDeductions);
+                    
+                    document.getElementById('resultNetPay').textContent = formatCurrency(netPay);
+                    document.getElementById('resultAnnualGross').textContent = formatCurrency(annualGross);
+                    document.getElementById('resultAnnualNet').textContent = formatCurrency(annualNet);
+                    
+                    // Show results card
+                    resultsCard.style.display = 'block';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghana Payroll System - Employees</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-logo">
+                    <i class="bi bi-cash-coin"></i>
+                    <span>Ghana Payroll</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="../index.html" class="sidebar-menu-item">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                
+                <a href="employees.html" class="sidebar-menu-item active">
+                    <i class="bi bi-people"></i>
+                    <span>Employees</span>
+                </a>
+                
+                <a href="payroll.html" class="sidebar-menu-item">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Payroll</span>
+                </a>
+                
+                <a href="payslips.html" class="sidebar-menu-item">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Payslips</span>
+                </a>
+                
+                <a href="reports.html" class="sidebar-menu-item">
+                    <i class="bi bi-bar-chart"></i>
+                    <span>Reports</span>
+                </a>
+                
+                <div class="sidebar-divider"></div>
+                
+                <a href="tax-calculator.html" class="sidebar-menu-item">
+                    <i class="bi bi-calculator"></i>
+                    <span>Tax Calculator</span>
+                </a>
+                
+                <a href="settings.html" class="sidebar-menu-item">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="d-flex align-items-center">
+                    <button type="button" class="sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h4 class="mb-0 d-none d-md-block">Employees</h4>
+                </div>
+                
+                <div class="navbar-user">
+                    <div class="user-avatar">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div class="user-name d-none d-md-block">Admin</div>
+                </div>
+            </nav>
+            
+            <!-- Employee Search and Actions -->
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                <div class="d-flex gap-2">
+                    <div class="search-box">
+                        <input type="text" class="form-control" id="employeeSearch" placeholder="Search employees...">
+                    </div>
+                    <button class="btn btn-outline-primary d-none d-md-inline-block">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+                
+                <a href="employee-add.html" class="btn btn-primary">
+                    <i class="bi bi-person-plus me-md-2"></i>
+                    <span class="d-none d-md-inline">Add Employee</span>
+                </a>
+            </div>
+            
+            <!-- Employees Table -->
+            <div class="card">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0" id="employeesFullTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th class="d-none d-md-table-cell">Department</th>
+                                    <th class="d-none d-md-table-cell">Position</th>
+                                    <th>Salary</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Employee rows will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- No results message (hidden by default) -->
+                    <div id="noSearchResults" class="text-center py-4" style="display: none;">
+                        <i class="bi bi-search text-muted fs-4 mb-3"></i>
+                        <p class="mb-1">No employees found matching your search</p>
+                        <a href="employees.html" class="btn btn-sm btn-outline-primary mt-2">Clear search</a>
+                    </div>
+                    
+                    <!-- Empty state (will be hidden if there are employees) -->
+                    <div id="noEmployees" class="text-center py-5" style="display: none;">
+                        <i class="bi bi-people text-muted fs-1 mb-3"></i>
+                        <p class="mb-1">No employees found</p>
+                        <a href="employee-add.html" class="btn btn-primary mt-2">Add your first employee</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

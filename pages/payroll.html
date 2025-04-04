@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghana Payroll System - Payroll</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-logo">
+                    <i class="bi bi-cash-coin"></i>
+                    <span>Ghana Payroll</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="../index.html" class="sidebar-menu-item">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                
+                <a href="employees.html" class="sidebar-menu-item">
+                    <i class="bi bi-people"></i>
+                    <span>Employees</span>
+                </a>
+                
+                <a href="payroll.html" class="sidebar-menu-item active">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Payroll</span>
+                </a>
+                
+                <a href="payslips.html" class="sidebar-menu-item">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Payslips</span>
+                </a>
+                
+                <a href="reports.html" class="sidebar-menu-item">
+                    <i class="bi bi-bar-chart"></i>
+                    <span>Reports</span>
+                </a>
+                
+                <div class="sidebar-divider"></div>
+                
+                <a href="tax-calculator.html" class="sidebar-menu-item">
+                    <i class="bi bi-calculator"></i>
+                    <span>Tax Calculator</span>
+                </a>
+                
+                <a href="settings.html" class="sidebar-menu-item">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="d-flex align-items-center">
+                    <button type="button" class="sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h4 class="mb-0 d-none d-md-block">Payroll History</h4>
+                </div>
+                
+                <div class="navbar-user">
+                    <div class="user-avatar">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div class="user-name d-none d-md-block">Admin</div>
+                </div>
+            </nav>
+            
+            <!-- Payroll Search and Actions -->
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                <div class="d-flex gap-2">
+                    <div>
+                        <select class="form-select" id="payrollYearFilter">
+                            <option value="2024" selected>2024</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <a href="payroll-create.html" class="btn btn-primary">
+                    <i class="bi bi-plus-circle me-md-2"></i>
+                    <span class="d-none d-md-inline">Run New Payroll</span>
+                </a>
+            </div>
+            
+            <!-- Payroll Table -->
+            <div class="card">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Period</th>
+                                    <th>Employees</th>
+                                    <th>Total Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <div class="fw-medium">June 2024</div>
+                                        <div class="text-muted small">01 Jun - 30 Jun</div>
+                                    </td>
+                                    <td>47</td>
+                                    <td>GH₵ 215,000.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="payroll-view.html?id=1" class="btn btn-sm btn-outline-primary" title="View">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <a href="payslips.html?payroll=1" class="btn btn-sm btn-outline-success" title="View Payslips">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>
+                                        <div class="fw-medium">May 2024</div>
+                                        <div class="text-muted small">01 May - 31 May</div>
+                                    </td>
+                                    <td>46</td>
+                                    <td>GH₵ 210,500.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="payroll-view.html?id=2" class="btn btn-sm btn-outline-primary" title="View">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <a href="payslips.html?payroll=2" class="btn btn-sm btn-outline-success" title="View Payslips">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <div class="fw-medium">April 2024</div>
+                                        <div class="text-muted small">01 Apr - 30 Apr</div>
+                                    </td>
+                                    <td>46</td>
+                                    <td>GH₵ 208,200.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="payroll-view.html?id=3" class="btn btn-sm btn-outline-primary" title="View">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <a href="payslips.html?payroll=3" class="btn btn-sm btn-outline-success" title="View Payslips">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <div class="fw-medium">March 2024</div>
+                                        <div class="text-muted small">01 Mar - 31 Mar</div>
+                                    </td>
+                                    <td>45</td>
+                                    <td>GH₵ 205,800.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="payroll-view.html?id=4" class="btn btn-sm btn-outline-primary" title="View">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <a href="payslips.html?payroll=4" class="btn btn-sm btn-outline-success" title="View Payslips">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>
+                                        <div class="fw-medium">February 2024</div>
+                                        <div class="text-muted small">01 Feb - 29 Feb</div>
+                                    </td>
+                                    <td>45</td>
+                                    <td>GH₵ 201,300.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="payroll-view.html?id=5" class="btn btn-sm btn-outline-primary" title="View">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <a href="payslips.html?payroll=5" class="btn btn-sm btn-outline-success" title="View Payslips">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>
+                                        <div class="fw-medium">January 2024</div>
+                                        <div class="text-muted small">01 Jan - 31 Jan</div>
+                                    </td>
+                                    <td>44</td>
+                                    <td>GH₵ 198,500.00</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="payroll-view.html?id=6" class="btn btn-sm btn-outline-primary" title="View">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <a href="payslips.html?payroll=6" class="btn btn-sm btn-outline-success" title="View Payslips">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html>

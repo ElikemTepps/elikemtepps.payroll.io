@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghana Payroll System - Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Chart.js (for charts) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <i class="bi bi-cash-coin"></i>
+                    <span>Ghana Payroll</span>
+                </a>
+            </div>
+            
+            <div class="sidebar-menu">
+                <a href="index.html" class="sidebar-menu-item active">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                
+                <a href="pages/employees.html" class="sidebar-menu-item">
+                    <i class="bi bi-people"></i>
+                    <span>Employees</span>
+                </a>
+                
+                <a href="pages/payroll.html" class="sidebar-menu-item">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Payroll</span>
+                </a>
+                
+                <a href="pages/payslips.html" class="sidebar-menu-item">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Payslips</span>
+                </a>
+                
+                <a href="pages/reports.html" class="sidebar-menu-item">
+                    <i class="bi bi-bar-chart"></i>
+                    <span>Reports</span>
+                </a>
+                
+                <div class="sidebar-divider"></div>
+                
+                <a href="pages/tax-calculator.html" class="sidebar-menu-item">
+                    <i class="bi bi-calculator"></i>
+                    <span>Tax Calculator</span>
+                </a>
+                
+                <a href="pages/settings.html" class="sidebar-menu-item">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="d-flex align-items-center">
+                    <button type="button" class="sidebar-toggle me-3" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h4 class="mb-0 d-none d-md-block">Dashboard</h4>
+                </div>
+                
+                <div class="navbar-user">
+                    <div class="user-avatar">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div class="user-name d-none d-md-block">Admin</div>
+                </div>
+            </nav>
+            
+            <!-- Stats Cards -->
+            <div class="row mb-4">
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-primary-light text-primary">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-title">Total Employees</div>
+                                <div class="stat-value" id="totalEmployees">47</div>
+                                <div class="stat-change positive">
+                                    <i class="bi bi-arrow-up"></i>
+                                    <span>Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-success-light text-success">
+                                <i class="bi bi-person-check"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-title">Active Employees</div>
+                                <div class="stat-value" id="activeEmployees">45</div>
+                                <div class="stat-change positive">
+                                    <i class="bi bi-graph-up"></i>
+                                    <span id="activePercent">96% of total</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-warning-light text-warning">
+                                <i class="bi bi-calendar-month"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-title">Monthly Payroll</div>
+                                <div class="stat-value" id="monthlyPayroll">GH₵ 215,000.00</div>
+                                <div class="stat-change">
+                                    <span>This month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-6 col-md-3 mb-4">
+                    <div class="card">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-secondary-light text-secondary">
+                                <i class="bi bi-calendar-year"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-title">Yearly Payroll</div>
+                                <div class="stat-value" id="yearlyPayroll">GH₵ 1,239,300.00</div>
+                                <div class="stat-change">
+                                    <span>Year to date</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts -->
+            <div class="row mb-4">
+                <div class="col-12 col-lg-8 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title">Monthly Payroll Trends</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="payrollChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title">Department Distribution</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="departmentChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <!-- Quick Actions -->
+                <div class="col-12 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Quick Actions</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6 col-md-3 mb-4 mb-md-0">
+                                    <a href="pages/employee-add.html" class="d-block text-decoration-none">
+                                        <div class="action-card h-100">
+                                            <div class="action-icon bg-primary-light text-primary">
+                                                <i class="bi bi-person-plus"></i>
+                                            </div>
+                                            <h5 class="action-title">Add Employee</h5>
+                                            <p class="text-muted mb-0">Create new employee records</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                
+                                <div class="col-6 col-md-3 mb-4 mb-md-0">
+                                    <a href="pages/payroll-create.html" class="d-block text-decoration-none">
+                                        <div class="action-card h-100">
+                                            <div class="action-icon bg-success-light text-success">
+                                                <i class="bi bi-cash"></i>
+                                            </div>
+                                            <h5 class="action-title">Run Payroll</h5>
+                                            <p class="text-muted mb-0">Process monthly payments</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                
+                                <div class="col-6 col-md-3">
+                                    <a href="pages/payslip-generate.html" class="d-block text-decoration-none">
+                                        <div class="action-card h-100">
+                                            <div class="action-icon bg-warning-light text-warning">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </div>
+                                            <h5 class="action-title">Payslips</h5>
+                                            <p class="text-muted mb-0">Generate & download payslips</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                
+                                <div class="col-6 col-md-3">
+                                    <a href="pages/tax-calculator.html" class="d-block text-decoration-none">
+                                        <div class="action-card h-100">
+                                            <div class="action-icon bg-secondary-light text-secondary">
+                                                <i class="bi bi-calculator"></i>
+                                            </div>
+                                            <h5 class="action-title">Tax Calculator</h5>
+                                            <p class="text-muted mb-0">Calculate tax deductions</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Recent Employees -->
+                <div class="col-12 col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title">Recent Employees</h5>
+                                <a href="pages/employees.html" class="btn btn-sm btn-outline-primary">View All</a>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0" id="recentEmployeesTable">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Employee rows will be inserted by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="col-12 col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title">Recent Activity</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="recentActivities">
+                                <!-- Activity items will be inserted by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
